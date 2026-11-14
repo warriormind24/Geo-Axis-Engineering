@@ -172,6 +172,9 @@ footer{background:linear-gradient(120deg,#081a32,#0b2243 70%,#102d50)}
 #services .svc{display:flex;flex-direction:column}
 #services .svc h3{min-height:2.2em}
 #services .svc ul{margin-bottom:20px}
+.svc-photo{display:block;width:100%;height:174px;margin:0 0 22px;overflow:hidden;border-radius:7px;background:var(--alt)}
+.svc-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.svc:hover .svc-photo img{transform:scale(1.045)}
 .service-link{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);color:var(--blue);font:700 .82rem "Archivo","Segoe UI",Arial,sans-serif;text-decoration:none}
 .service-link::after{content:"\2192";transition:transform .18s ease}
 .service-link:hover::after{transform:translateX(4px)}
@@ -198,6 +201,7 @@ footer .wrap>div:last-child p{overflow-wrap:anywhere}
   .hero-visual{justify-self:center;width:min(100%,340px);margin:-4px auto 10px}
   .map-caption{left:16px;right:16px;bottom:15px}
   .project-banner{align-items:flex-start;flex-direction:column;padding:26px 22px}
+  .svc-photo{height:190px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -271,12 +275,12 @@ footer .wrap>div:last-child p{overflow-wrap:anywhere}
 <h2>Services</h2>
 <p class="lead">Each assignment is scoped around your requirements, applicable standards and site conditions.</p>
 <div class="grid">
-<div class="svc"><h3>Land and engineering surveying</h3><ul><li>Topographical and detail surveys</li><li>Control, traversing and levelling</li><li>Setting-out and as-built surveys</li><li>Road, drainage and utility surveys</li><li>Area, distance and volume calculations</li></ul><a class="service-link" href="#contact">Discuss this service</a></div>
-<div class="svc"><h3>Mining surveying and support</h3><ul><li>Underground and surface survey support</li><li>Development, excavation and stope surveys</li><li>Survey control and coordinate verification</li><li>Mine plans, sections and digital drawings</li><li>Borehole collar surveys</li><li>Stockpile and excavation measurement</li></ul><a class="service-link" href="#contact">Discuss this service</a></div>
-<div class="svc"><h3>GIS, mapping and geospatial data</h3><ul><li>GIS data capture and spatial analysis</li><li>Digital and thematic mapping</li><li>Coordinate system and transformation support</li><li>Digital terrain models and contours</li><li>Spatial database preparation</li></ul><a class="service-link" href="#contact">Discuss this service</a></div>
-<div class="svc"><h3>UAV, photogrammetry and LiDAR</h3><ul><li>Drone mapping and topographic capture</li><li>Orthomosaics and photogrammetric models</li><li>Point-cloud processing and 3D surfaces</li><li>Progress monitoring and volume assessment</li></ul><a class="service-link" href="#contact">Discuss this service</a></div>
-<div class="svc"><h3>Engineering and construction support</h3><ul><li>Survey support for civil and infrastructure works</li><li>Construction control and setting-out</li><li>Earthworks measurement and verification</li><li>CAD drawings and as-built documentation</li></ul><a class="service-link" href="#contact">Discuss this service</a></div>
-<div class="svc"><h3>Land development support</h3><ul><li>Topographic base plans</li><li>Subdivision and layout survey support</li><li>Road-reserve and utility-corridor mapping</li><li>Site area and land-use mapping</li></ul><a class="service-link" href="#contact">Discuss this service</a></div>
+<div class="svc"><div class="svc-photo"><img src="service-photos/land-surveying.jpg" alt="Survey team working at an active construction site" width="900" height="520" loading="lazy" decoding="async"></div><h3>Land and engineering surveying</h3><ul><li>Topographical and detail surveys</li><li>Control, traversing and levelling</li><li>Setting-out and as-built surveys</li><li>Road, drainage and utility surveys</li><li>Area, distance and volume calculations</li></ul><a class="service-link" href="#contact">Discuss this service</a></div>
+<div class="svc"><div class="svc-photo"><img src="service-photos/mining-surveying.jpg" alt="Industrial processing facility representing mining and site support" width="900" height="520" loading="lazy" decoding="async"></div><h3>Mining surveying and support</h3><ul><li>Underground and surface survey support</li><li>Development, excavation and stope surveys</li><li>Survey control and coordinate verification</li><li>Mine plans, sections and digital drawings</li><li>Borehole collar surveys</li><li>Stockpile and excavation measurement</li></ul><a class="service-link" href="#contact">Discuss this service</a></div>
+<div class="svc"><div class="svc-photo"><img src="service-photos/gis-mapping.jpg" alt="Team reviewing information on a laptop for geospatial mapping" width="900" height="520" loading="lazy" decoding="async"></div><h3>GIS, mapping and geospatial data</h3><ul><li>GIS data capture and spatial analysis</li><li>Digital and thematic mapping</li><li>Coordinate system and transformation support</li><li>Digital terrain models and contours</li><li>Spatial database preparation</li></ul><a class="service-link" href="#contact">Discuss this service</a></div>
+<div class="svc"><div class="svc-photo"><img src="service-photos/uav-mapping.jpg" alt="Camera-equipped drone used for aerial mapping" width="900" height="520" loading="lazy" decoding="async"></div><h3>UAV, photogrammetry and LiDAR</h3><ul><li>Drone mapping and topographic capture</li><li>Orthomosaics and photogrammetric models</li><li>Point-cloud processing and 3D surfaces</li><li>Progress monitoring and volume assessment</li></ul><a class="service-link" href="#contact">Discuss this service</a></div>
+<div class="svc"><div class="svc-photo"><img src="service-photos/engineering-support.jpg" alt="Construction crew coordinating work on an engineering site" width="900" height="520" loading="lazy" decoding="async"></div><h3>Engineering and construction support</h3><ul><li>Survey support for civil and infrastructure works</li><li>Construction control and setting-out</li><li>Earthworks measurement and verification</li><li>CAD drawings and as-built documentation</li></ul><a class="service-link" href="#contact">Discuss this service</a></div>
+<div class="svc"><div class="svc-photo"><img src="service-photos/land-development.jpg" alt="Contemporary building illustrating land and site development" width="900" height="520" loading="lazy" decoding="async"></div><h3>Land development support</h3><ul><li>Topographic base plans</li><li>Subdivision and layout survey support</li><li>Road-reserve and utility-corridor mapping</li><li>Site area and land-use mapping</li></ul><a class="service-link" href="#contact">Discuss this service</a></div>
 </div>
 <div class="project-banner">
 <div><h3>Have a project in mind?</h3><p>Share your site, scope and required outputs. We’ll help shape the right survey or geospatial support for the job.</p></div>

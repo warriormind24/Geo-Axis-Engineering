@@ -142,6 +142,27 @@ footer p{margin:6px 0}
 .wa-option{display:grid;gap:2px;padding:10px 12px;border-radius:8px;background:#1fa855;color:#fff;text-decoration:none;font-weight:700;line-height:1.3;transition:background .18s ease,transform .18s ease}
 .wa-option small{font-size:.76rem;font-weight:400;opacity:.9}
 .wa-option:hover{background:#178844;transform:translateY(-1px)}
+.blueprint-chat{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:24}
+.blueprint-toggle{display:flex;align-items:center;gap:10px;padding:12px 16px;border:0;border-radius:999px;background:var(--hero);color:#fff;font:700 .88rem "Archivo","Segoe UI",Arial,sans-serif;letter-spacing:.02em;box-shadow:0 6px 18px #0004;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+.blueprint-toggle:hover{transform:translateY(-2px);box-shadow:0 10px 24px #0005}
+.blueprint-mark{display:grid;width:24px;height:24px;place-items:center;border:1px solid #ffffff80;border-radius:50%;font-size:1rem}
+.blueprint-panel{position:absolute;right:0;bottom:calc(100% + 12px);display:flex;flex-direction:column;width:min(380px,calc(100vw - 32px));height:min(520px,calc(100vh - 180px));min-height:320px;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:0 20px 60px #0004}
+.blueprint-panel[hidden]{display:none}
+.blueprint-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;background:linear-gradient(120deg,#081a32,#0b2243 70%,#102d50);color:#fff}
+.blueprint-head strong{font:700 .98rem "Archivo","Segoe UI",Arial,sans-serif;letter-spacing:.03em}
+.blueprint-head small{display:block;margin-top:3px;color:#cad7e8;font-size:.78rem}
+.blueprint-close{display:grid;width:34px;height:34px;place-items:center;border:1px solid #ffffff55;border-radius:50%;background:transparent;color:#fff;font-size:1.35rem;cursor:pointer}
+.blueprint-messages{display:flex;flex:1;flex-direction:column;gap:10px;overflow-y:auto;padding:16px;background:var(--alt)}
+.blueprint-message{max-width:90%;margin:0;padding:10px 12px;border-radius:12px;line-height:1.45;overflow-wrap:anywhere;white-space:pre-wrap}
+.blueprint-message.assistant{align-self:flex-start;border:1px solid var(--line);border-bottom-left-radius:4px;background:var(--card);color:var(--text)}
+.blueprint-message.user{align-self:flex-end;border-bottom-right-radius:4px;background:var(--blue);color:#fff}
+.blueprint-prompts{display:flex;flex-wrap:wrap;gap:7px;padding:0 14px 12px;background:var(--card)}
+.blueprint-prompts button{padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font:600 .78rem "Source Sans 3","Segoe UI",Arial,sans-serif;cursor:pointer}
+.blueprint-prompts button:hover{border-color:var(--green);color:var(--green)}
+.blueprint-form{display:flex;align-items:center;gap:8px;padding:12px;border-top:1px solid var(--line);background:var(--card)}
+.blueprint-form input{flex:1;min-width:0;margin:0}
+.blueprint-form button{padding:10px 14px;border:0;border-radius:6px;background:var(--green);color:#fff;font-weight:700;cursor:pointer}
+.blueprint-note{margin:0;padding:0 14px 10px;background:var(--card);color:var(--text);font-size:.72rem}
 @media (max-width:860px){nav a:not(.btn){display:none}.strip{grid-template-columns:1fr 1fr}.strip div{border:0;padding-left:0}.grid,.two,.contact,.ind{grid-template-columns:1fr}ol.steps{grid-template-columns:1fr;gap:26px}ol.steps li{border-top:0;border-left:3px solid var(--blue);padding:0 0 0 22px}ol.steps li::before{top:0;left:-17px}section{padding:56px 0}.row{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:no-preference){.pulse{animation:p 6s ease-in-out infinite;transform-origin:center}@keyframes p{50%{transform:scale(1.04)}}}
 
@@ -267,6 +288,8 @@ footer .wrap>div:last-child p{overflow-wrap:anywhere}
 }
 @media (max-width:560px){
   nav{left:-18px;right:-18px}
+  .blueprint-chat{right:12px;bottom:calc(78px + env(safe-area-inset-bottom,0px))}
+  .blueprint-panel{width:calc(100vw - 24px);height:min(500px,calc(100vh - 150px));min-height:300px}
   .hero-main{grid-template-columns:1fr;gap:0}
   .hero-visual{justify-self:center;width:min(100%,340px);margin:-4px auto 10px}
   .map-caption{left:16px;right:16px;bottom:15px}
@@ -422,6 +445,7 @@ footer .wrap>div:last-child p{overflow-wrap:anywhere}
 <div><p>09 Gymkhana, Kitwe Road, Chingola</p><p>+260 965 843 965 · shadrick@geoaxisengineeringltd.com</p><p>mwamba@geoaxisengineeringltd.com</p><p>© 2026 GeoAxis Engineering &amp; Surveying Ltd. All rights reserved.</p></div>
 </div></footer>
 <details class="wa-widget"><summary class="wa">WhatsApp</summary><div class="wa-options"><a class="wa-option" href="https://wa.me/260965843965" target="_blank" rel="noopener"><span>+260 965 843 965</span><small>Start a WhatsApp chat</small></a><a class="wa-option" href="https://wa.me/260962404050" target="_blank" rel="noopener"><span>+260 962 404 050</span><small>Start a WhatsApp chat</small></a><a class="wa-option" href="https://wa.me/260768565247" target="_blank" rel="noopener"><span>+260 768 565 247</span><small>Start a WhatsApp chat</small></a></div></details>
+<div class="blueprint-chat"><button class="blueprint-toggle" id="blueprint-toggle" type="button" aria-expanded="false" aria-controls="blueprint-panel"><span class="blueprint-mark" aria-hidden="true">?</span>GeoAxis Blueprint</button><div class="blueprint-panel" id="blueprint-panel" role="dialog" aria-labelledby="blueprint-title" aria-modal="false" hidden><div class="blueprint-head"><div><strong id="blueprint-title">GeoAxis Blueprint</strong><small>Frequently asked questions</small></div><button class="blueprint-close" id="blueprint-close" type="button" aria-label="Close chat">×</button></div><div class="blueprint-messages" id="blueprint-messages" role="log" aria-live="polite" aria-relevant="additions"><p class="blueprint-message assistant">Hello! I can answer common questions about GeoAxis services, coverage, quotes, deliverables, and contacting our team.</p></div><div class="blueprint-prompts" aria-label="Suggested questions"><button type="button" data-blueprint-question="What services do you offer?">Services</button><button type="button" data-blueprint-question="Where do you work?">Coverage</button><button type="button" data-blueprint-question="How do I request a quote?">Quotes</button><button type="button" data-blueprint-question="What deliverables do you provide?">Deliverables</button><button type="button" data-blueprint-question="How can I contact you?">Contact</button></div><form class="blueprint-form" id="blueprint-form"><input id="blueprint-input" name="question" type="text" maxlength="300" autocomplete="off" placeholder="Ask a question..." aria-label="Ask GeoAxis Blueprint" required><button type="submit">Send</button></form><p class="blueprint-note">Answers are based on information on this website.</p></div></div>
 
 <script>
 document.getElementById('f').addEventListener('submit',function(ev){
@@ -441,6 +465,63 @@ if(ev.target.closest('a')){
 menuButton.setAttribute('aria-expanded','false');
 mainNav.dataset.open='false';
 }
+});
+var blueprintToggle=document.getElementById('blueprint-toggle');
+var blueprintPanel=document.getElementById('blueprint-panel');
+var blueprintClose=document.getElementById('blueprint-close');
+var blueprintForm=document.getElementById('blueprint-form');
+var blueprintInput=document.getElementById('blueprint-input');
+var blueprintMessages=document.getElementById('blueprint-messages');
+function closeBlueprintChat(){
+blueprintPanel.hidden=true;
+blueprintToggle.setAttribute('aria-expanded','false');
+blueprintToggle.focus();
+}
+function addBlueprintMessage(text,sender){
+var message=document.createElement('p');
+message.className='blueprint-message '+sender;
+message.textContent=text;
+blueprintMessages.appendChild(message);
+blueprintMessages.scrollTop=blueprintMessages.scrollHeight;
+}
+function getBlueprintAnswer(question){
+var q=question.toLowerCase();
+if(/\b(complex|complicated|project-specific|specific project|detailed|custom|recommend|advice|feasibility|technical question|site conditions|accuracy requirement)\b/.test(q)||q.length>180)return 'This sounds like a detailed or project-specific question. Please refer it to our team through the Request a Quote form or email shadrick@geoaxisengineeringltd.com or mwamba@geoaxisengineeringltd.com.';
+if(/\b(quote|cost|price|pricing|rate|estimate|budget|how much)\b/.test(q))return 'Quotes depend on the project scope, site conditions, and required outputs. Use the Request a Quote form and include your project location, scope, and preferred deliverables. For detailed or project-specific pricing questions, please refer them to our team through the contact form.';
+if(/\b(deliverable|format|dwg|dxf|pdf|shapefile|geopackage|geotiff|las|laz|csv|excel|report|model)\b/.test(q))return 'Typical deliverables include DWG/DXF, PDF plans, Shapefile or GeoPackage, GeoTIFF, LAS/LAZ, CSV/Excel, and technical reports. We agree the right formats during project scoping.';
+if(/\b(contact|phone|call|whatsapp|email|address|reach)\b/.test(q))return 'You can reach GeoAxis at 09 Gymkhana, Kitwe Road, Chingola, or email shadrick@geoaxisengineeringltd.com and mwamba@geoaxisengineeringltd.com. WhatsApp: +260 965 843 965, +260 962 404 050, or +260 768 565 247.';
+if(/\b(where|area|coverage|cover|location|based|operate|region|zambia|copperbelt|chingola)\b/.test(q))return 'GeoAxis is based in Chingola and supports projects across Zambia. The office is at 09 Gymkhana, Kitwe Road, Chingola, Copperbelt.';
+if(/\b(compliance|registration|registered|pacra|zra|approval|approved|license|licence|safety)\b/.test(q))return 'GeoAxis works within its registrations and approvals and follows applicable Zambian requirements. Company, tax, and UAV approval details are listed in the Compliance section; supporting tender documents are available on request.';
+if(/\b(process|steps|workflow|fieldwork|handover|validation)\b/.test(q))return 'Projects follow five stages: scope and planning, fieldwork, processing and validation, deliverables, and handover and support.';
+if(/\b(services?|survey|mapping|gis|uav|lidar|mining|engineering|land development|photogrammetry)\b/.test(q))return 'GeoAxis provides land and engineering surveying; mining surveying and support; GIS and geospatial mapping; UAV, photogrammetry and LiDAR; engineering and construction support; and land-development support.';
+if(/\b(hello|hi|hey|good morning|good afternoon)\b/.test(q))return 'Hello! Ask me about our services, coverage, quotes, deliverables, compliance, or how to contact the team.';
+return 'I do not have that detail in the website FAQs yet. Please refer this question to our team through the Request a Quote form or email shadrick@geoaxisengineeringltd.com or mwamba@geoaxisengineeringltd.com. You can also ask about services, project coverage, quotes, deliverables, or contact details.';
+}
+function askBlueprint(question){
+var cleanQuestion=question.trim();
+if(!cleanQuestion)return;
+addBlueprintMessage(cleanQuestion,'user');
+addBlueprintMessage(getBlueprintAnswer(cleanQuestion),'assistant');
+}
+blueprintToggle.addEventListener('click',function(){
+var opening=blueprintPanel.hidden;
+blueprintPanel.hidden=!opening;
+blueprintToggle.setAttribute('aria-expanded',String(opening));
+if(opening)blueprintInput.focus();
+});
+blueprintClose.addEventListener('click',closeBlueprintChat);
+blueprintForm.addEventListener('submit',function(ev){
+ev.preventDefault();
+askBlueprint(blueprintInput.value);
+blueprintInput.value='';
+blueprintInput.focus();
+});
+document.querySelector('.blueprint-prompts').addEventListener('click',function(ev){
+var prompt=ev.target.closest('[data-blueprint-question]');
+if(prompt)askBlueprint(prompt.getAttribute('data-blueprint-question'));
+});
+document.addEventListener('keydown',function(ev){
+if(ev.key==='Escape'&&!blueprintPanel.hidden)closeBlueprintChat();
 });
 </script>
 </body>

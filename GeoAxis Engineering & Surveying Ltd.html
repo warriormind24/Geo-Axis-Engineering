@@ -121,7 +121,7 @@ ol.steps span{font-size:.95rem}
 .ind b{color:var(--ink)}
 table{width:100%;border-collapse:collapse;background:var(--card)}
 th,td{text-align:left;padding:14px 16px;border:1px solid var(--line)}
-th{background:var(--hero);color:#fff;font-weight:600}
+th{background:var(--hero);color:#fff;font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem}
 .fmt{margin-top:28px}
 .contact{display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
 form{display:grid;gap:14px}
@@ -133,13 +133,21 @@ input,select,textarea{width:100%;font:inherit;padding:12px;margin-top:4px;border
 footer{background:var(--hero);color:#b9c7de;padding:44px 0}
 footer .wrap{display:flex;gap:30px;justify-content:space-between;flex-wrap:wrap;align-items:center}
 footer p{margin:6px 0}
-.wa{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25;background:#1fa855;color:#fff;font-weight:700;padding:12px 18px;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px #0004}
+.wa-widget{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25}
+.wa{display:flex;align-items:center;gap:12px;background:#1fa855;color:#fff;font-weight:700;padding:12px 18px;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px #0004;cursor:pointer;list-style:none}
+.wa::-webkit-details-marker{display:none}
+.wa::after{content:"+";font-size:1.2em;line-height:1}
+.wa-widget[open] .wa::after{content:"-"}
+.wa-options{position:absolute;right:0;bottom:calc(100% + 10px);display:grid;gap:8px;min-width:220px;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--card);box-shadow:0 12px 30px #0003}
+.wa-option{display:grid;gap:2px;padding:10px 12px;border-radius:8px;background:#1fa855;color:#fff;text-decoration:none;font-weight:700;line-height:1.3;transition:background .18s ease,transform .18s ease}
+.wa-option small{font-size:.76rem;font-weight:400;opacity:.9}
+.wa-option:hover{background:#178844;transform:translateY(-1px)}
 @media (max-width:860px){nav a:not(.btn){display:none}.strip{grid-template-columns:1fr 1fr}.strip div{border:0;padding-left:0}.grid,.two,.contact,.ind{grid-template-columns:1fr}ol.steps{grid-template-columns:1fr;gap:26px}ol.steps li{border-top:0;border-left:3px solid var(--blue);padding:0 0 0 22px}ol.steps li::before{top:0;left:-17px}section{padding:56px 0}.row{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:no-preference){.pulse{animation:p 6s ease-in-out infinite;transform-origin:center}@keyframes p{50%{transform:scale(1.04)}}}
 
 /* Refined, responsive presentation */
 body{font-family:"Source Sans 3","Segoe UI",Arial,sans-serif}
-h1,h2,h3{font-family:"Archivo","Aptos Display","Segoe UI",Arial,sans-serif;text-transform:none;letter-spacing:.015em}
+h1,h2,h3{font-family:"Archivo","Aptos Display","Segoe UI",Arial,sans-serif;text-transform:uppercase;letter-spacing:.045em}
 h2{font-size:clamp(1.8rem,3.8vw,2.65rem);font-weight:750}
 h3{font-size:1.16rem;font-weight:700;letter-spacing:0}
 .wrap{max-width:1180px;padding-left:24px;padding-right:24px}
@@ -149,6 +157,7 @@ header{box-shadow:0 5px 20px rgba(11,34,67,.06)}
 nav{gap:20px}
 nav a:not(.btn){transition:color .18s ease}
 nav a:not(.btn):hover{color:var(--green)}
+.bar nav a:not(.btn){text-transform:uppercase;letter-spacing:.07em;font-size:.8rem}
 .hero{background:radial-gradient(ellipse at 82% 18%,rgba(57,105,159,.38),transparent 38%),linear-gradient(120deg,#091b34 0%,#0b2243 58%,#102d50 100%)}
 .hero .wrap{padding-top:112px}
 .hero h1{max-width:13ch;font-size:clamp(2.7rem,6.8vw,5.25rem);line-height:1.02;letter-spacing:-.025em}
@@ -176,7 +185,10 @@ section h2::after{content:"";display:block;width:48px;height:3px;margin-top:17px
 .svc li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:7px;border-radius:50%;background:var(--green)}
 .vals{gap:12px}
 .vals span{padding:9px 15px}
-.info{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:28px}
+.info{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:10px;padding:28px;box-shadow:0 8px 26px rgba(11,34,67,.045)}
+.wa-line{display:flex;width:fit-content;align-items:center;margin-top:7px;padding:7px 12px;border:1px solid rgba(30,138,60,.2);border-radius:999px;background:rgba(30,138,60,.07);color:var(--green);font-weight:700;text-decoration:none;transition:background .18s ease,transform .18s ease}
+.wa-line::before{content:"";width:7px;height:7px;margin-right:8px;border-radius:50%;background:#1fa855;box-shadow:0 0 0 3px rgba(31,168,85,.14)}
+.wa-line:hover{background:rgba(30,138,60,.14);transform:translateY(-1px)}
 form{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:28px;box-shadow:0 8px 26px rgba(11,34,67,.045)}
 input,select,textarea{border-radius:6px}
 input:focus,select:focus,textarea:focus{border-color:var(--blue)}
@@ -286,7 +298,7 @@ footer .wrap>div:last-child p{overflow-wrap:anywhere}
 <div class="hero-main">
 <div class="hero-copy">
 <p class="eyebrow">Zambia-based engineering and geospatial consultancy</p>
-<h1>Surveying services across Zambia</h1>
+<h1>SURVEYING SERVICES ACROSS ZAMBIA</h1>
 <p>Surveying, geomatics, engineering support and geospatial solutions for mining, construction and infrastructure across Zambia.</p>
 <div class="cta"><a class="btn" href="#contact">Request a quote</a><a class="btn o" href="#services">Our services</a></div>
 </div>
@@ -388,7 +400,7 @@ footer .wrap>div:last-child p{overflow-wrap:anywhere}
 <div class="contact">
 <div class="info">
 <p><b>Office</b>09 Gymkhana, Kitwe Road, Chingola, Copperbelt, Zambia</p>
-<p><b>Phone</b><a href="tel:+260965843965">+260 965 843 965</a><br><a href="tel:+260962404050">+260 962 404 050</a></p>
+<p><b>WhatsApp lines</b><a class="wa-line" href="https://wa.me/260965843965" target="_blank" rel="noopener">+260 965 843 965</a><a class="wa-line" href="https://wa.me/260962404050" target="_blank" rel="noopener">+260 962 404 050</a></p>
 <p><b>Email</b><a href="mailto:shadrick@geoaxisengineeringltd.com">shadrick@geoaxisengineeringltd.com</a></p>
 <p><b>Secondary Email</b><a href="mailto:mwamba@geoaxisengineeringltd.com">mwamba@geoaxisengineeringltd.com</a></p>
 </div>
@@ -409,7 +421,7 @@ footer .wrap>div:last-child p{overflow-wrap:anywhere}
 <p>Precision. Innovation. Excellence.</p></div>
 <div><p>09 Gymkhana, Kitwe Road, Chingola</p><p>+260 965 843 965 · shadrick@geoaxisengineeringltd.com</p><p>mwamba@geoaxisengineeringltd.com</p><p>© 2026 GeoAxis Engineering &amp; Surveying Ltd. All rights reserved.</p></div>
 </div></footer>
-<a class="wa" href="https://wa.me/260965843965" target="_blank" rel="noopener">WhatsApp</a>
+<details class="wa-widget"><summary class="wa">WhatsApp</summary><div class="wa-options"><a class="wa-option" href="https://wa.me/260965843965" target="_blank" rel="noopener"><span>+260 965 843 965</span><small>Start a WhatsApp chat</small></a><a class="wa-option" href="https://wa.me/260962404050" target="_blank" rel="noopener"><span>+260 962 404 050</span><small>Start a WhatsApp chat</small></a><a class="wa-option" href="https://wa.me/260768565247" target="_blank" rel="noopener"><span>+260 768 565 247</span><small>Start a WhatsApp chat</small></a></div></details>
 
 <script>
 document.getElementById('f').addEventListener('submit',function(ev){
